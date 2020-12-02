@@ -1,0 +1,14 @@
+﻿@using ProyectoFinal.ViewModels
+@model AccountLoginViewModel
+
+<h2>User login</h2>
+<form asp-action="LogIn" method="post">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <button type="submit">Ok</button>
+</form>
