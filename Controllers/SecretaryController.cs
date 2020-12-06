@@ -73,7 +73,26 @@ namespace ProyectoFinal.Controllers
         }
 
         //Gestión Asginaturas 
+        public async Task<IActionResult> AllSubjects()
+        {
+            var subjects = await _db.Course.Include(s => s.Teacher).ToListAsync();
+            return View(subjects);
+        }
 
+        //Add Subject
+        public async Task<IActionResult> AddSubject()
+        {
+            var teacherDisplay = await _db.Teacher.Select(x => new
+            {
+                Id = x.TeacherId,
+                Value = x.TeacherName
+            }).ToListAsync();
+            SecretaryAddSubjectViewModel vm = new SecretaryAddSubjectViewModel();
+            vm.TeacherList = new SelectList(teacherDisplay, "Id", "Value");
+            return View(vm);
+     
+        }
+        //Post de addSubject aqui: 
 
     }
 }

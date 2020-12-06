@@ -5,14 +5,10 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal.Models
 {
-    public enum CourseType
-    {
-        Optional,
-        Mandatory
-    }
     public class Course
     {
         public int CourseId { get; set; }
+        public string CourseName { get; set; }
         public int Credits { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -21,6 +17,6 @@ namespace ProyectoFinal.Models
         public int YearGrade { get; set; }
         public int Price { get; set; }
         public int SeatCapacity { get; set; }
-        public CourseType CourseType { get; set; }
+        public bool Optional { get; set; }
     }
 }
