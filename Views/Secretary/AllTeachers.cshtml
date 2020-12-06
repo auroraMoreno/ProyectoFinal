@@ -1,0 +1,38 @@
+﻿@using ProyectoFinal.Models
+@model IEnumerable<Teacher>
+
+<h1>Teachers</h1>
+
+<p><a asp-action="AddTeacher">Add Teachers</a></p>
+
+@{
+    if (Model.Count() < 1)
+    {
+        <p>No teachers in database yet</p>
+    }
+    else
+    {
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Teacher Id</th>
+                    <th>Teacher Name</th>
+                    <th>Teacher DNI</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    <tr>
+                        <td>@t.TeacherId</td>
+                        <td>@t.TeacherName</td>
+                        <td>@t.TeacherDNI</td>
+                        <td>@t.Department.DepartmentName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+}

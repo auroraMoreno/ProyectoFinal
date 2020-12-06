@@ -1,0 +1,29 @@
+﻿@using ProyectoFinal.ViewModels
+@model SecretaryAddTeacherViewModel
+
+
+<p><a asp-action="AllTeachers">Back to teacher list</a></p>
+
+<form asp-action="AddTeacher" method="post">
+    <input asp-for="@Model.Teacher.TeacherId" type="hidden" />
+    <br />
+    <label asp-for="Teacher.TeacherDNI"></label>
+    <input asp-for="Teacher.TeacherDNI" />
+    <br />
+    <label asp-for="Teacher.TeacherName"></label>
+    <input asp-for="Teacher.TeacherName" />
+    <br />
+    <label asp-for="Teacher.Age"></label>
+    <input asp-for="Teacher.Age" />
+    <br />
+    <label asp-for="Teacher.Address"></label>
+    <input asp-for="Teacher.Address" />
+    <br />
+    <label asp-for="Teacher.Email"></label>
+    <input asp-for="Teacher.Email" />
+    <br />
+    <label asp-for="Department.DepartmentName"></label>
+    <select asp-for="Department.DepartmentId" asp-items="@Model.DepartmentList"></select>
+    <button type="submit">Add Teacher</button>
+    <br />
+</form>

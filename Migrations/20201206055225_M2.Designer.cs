@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoFinal.Models;
 
 namespace ProyectoFinal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201206055225_M2")]
+    partial class M2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,96 +182,6 @@ namespace ProyectoFinal.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ProyectoFinal.Models.Course", b =>
-                {
-                    b.Property<int>("CourseId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CourseType");
-
-                    b.Property<int>("Credits");
-
-                    b.Property<DateTime>("EndDate");
-
-                    b.Property<int>("Price");
-
-                    b.Property<int>("SeatCapacity");
-
-                    b.Property<DateTime>("StartDate");
-
-                    b.Property<int>("TeacherId");
-
-                    b.Property<int>("YearGrade");
-
-                    b.HasKey("CourseId");
-
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("Course");
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Models.Department", b =>
-                {
-                    b.Property<int>("DepartmentId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("DepartmentName");
-
-                    b.HasKey("DepartmentId");
-
-                    b.ToTable("Department");
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Models.Incidents", b =>
-                {
-                    b.Property<int>("IncidentsId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<DateTime>("IncidentDate");
-
-                    b.Property<int>("TeacherId");
-
-                    b.HasKey("IncidentsId");
-
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("Incidents");
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Models.Teacher", b =>
-                {
-                    b.Property<int>("TeacherId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<int>("Age");
-
-                    b.Property<int>("DepartmentId");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("TeacherDNI");
-
-                    b.Property<string>("TeacherName");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("TeacherId");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Teacher");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -313,34 +225,6 @@ namespace ProyectoFinal.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Models.Course", b =>
-                {
-                    b.HasOne("ProyectoFinal.Models.Teacher", "Teacher")
-                        .WithMany("Courses")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Models.Incidents", b =>
-                {
-                    b.HasOne("ProyectoFinal.Models.Teacher", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Models.Teacher", b =>
-                {
-                    b.HasOne("ProyectoFinal.Models.Department", "Department")
-                        .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ProyectoFinal.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,34 @@
+﻿@using ProyectoFinal.Models
+@model IEnumerable<Department>
+
+<h1>Departments</h1>
+
+<p><a asp-action="AddDepartment">Add Department</a></p>
+
+@{
+    if (Model.Count() < 1)
+    {
+        <p>No departments in database yet</p>
+    }
+    else
+    {
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Department Id</th>
+                    <th>Deparment Name</th>
+                </tr>
+            </thead>
+            <tbody>
+               @foreach(var d in Model)
+               {
+                   <tr>
+                       <td>@d.DepartmentId</td>
+                       <td>@d.DepartmentName</td>
+                   </tr>
+               }
+            </tbody>
+        </table>
+    }
+
+}

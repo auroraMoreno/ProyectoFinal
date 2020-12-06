@@ -1,0 +1,15 @@
+﻿@using ProyectoFinal.ViewModels
+@model RoleAddUserRoleViewModel
+
+<p>Pick a role for @Model.User.UserName</p>
+
+<form asp-controller="Role" asp-action="AddUserRole" method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="@Model.User.Id" type="hidden" />
+    <label asp-for="Role"></label>
+    <select asp-for="Role" asp-items="@Model.RoleList"></select>
+    <br />
+    <button type="submit">Add to RoleList</button>
+</form>
+
+<p><a asp-controller="Account" asp-action="AllUser">Back to User List</a></p>

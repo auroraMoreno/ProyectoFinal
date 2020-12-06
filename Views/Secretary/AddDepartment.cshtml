@@ -1,0 +1,13 @@
+﻿@using ProyectoFinal.Models
+@model Department
+
+<p><a asp-action="AllDepartments">Back to departments</a></p>
+<form asp-controller="Secretary" asp-action="AddDepartment" method="post">
+    @*<label asp-for="DepartmentId"></label>
+    <input asp-for="DepartmentId" />
+    <br/>*@
+    <label asp-for="DepartmentName"></label>
+    <input asp-for="DepartmentName"/>
+    <br/>
+    <button type="submit">Add Secretary</button>
+</form>

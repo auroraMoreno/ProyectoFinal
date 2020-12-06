@@ -78,5 +78,18 @@ namespace ProyectoFinal.Controllers
 
         }
 
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("LogIn", "Account");
+        }
+
+
+        public IActionResult AllUser()
+        {
+            var users = _db.Users.ToList();
+            return View(users);
+        }
+
     }
 }

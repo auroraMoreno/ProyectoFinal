@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityUser>
+
+@{
+    if (Model.Count() < 1)
+    {
+        <p>No users yet</p>
+    }
+    else
+    {
+        <h3>All users</h3>
+        <table border="1">
+            <tr>
+                <th>User Name</th>
+                <th>User Role</th>
+            </tr>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.UserName</td>
+                    <td><a asp-controller="Role" asp-action="AddUserRole" asp-route-id="@u.Id">Add Role/Update Role</a></td>
+                </tr>
+            }
+        </table>
+    }
+}
