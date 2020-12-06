@@ -5,8 +5,6 @@
 <p><a asp-action="AllTeachers">Back to teacher list</a></p>
 
 <form asp-action="AddTeacher" method="post">
-    <input asp-for="@Model.Teacher.TeacherId" type="hidden" />
-    <br />
     <label asp-for="Teacher.TeacherDNI"></label>
     <input asp-for="Teacher.TeacherDNI" />
     <br />

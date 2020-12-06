@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace ProyectoFinal.Controllers
 {
@@ -22,6 +23,7 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
+        //Gestión departamentos
         public async Task<IActionResult> AllDepartments()
         {
             var departments = await _db.Department.ToListAsync();
@@ -59,6 +61,18 @@ namespace ProyectoFinal.Controllers
             vm.DepartmentList = new SelectList(departmentDisplay, "Id", "Value");
             return View(vm);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddTeacher(SecretaryAddTeacherViewModel vm)
+        {
+            var department = await _db.Department.SingleOrDefaultAsync(d => d.DepartmentId == vm.Department.DepartmentId);
+            vm.Teacher.Department = department;
+            _db.Add(vm.Teacher);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("AllTeachers");
+        }
+
+        //Gestión Asginaturas 
 
 
     }
