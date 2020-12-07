@@ -1,7 +1,7 @@
 ﻿@using ProyectoFinal.ViewModels
 @model SecretaryAddSubjectViewModel
 
-<p><a asp-action="AllSubject">Back to Subject List</a></p> 
+<p><a asp-action="AllSubjects">Back to Subject List</a></p> 
 
 <form asp-action="AddSubject" method="post">
     <label asp-for="Course.CourseName"></label>
@@ -15,9 +15,6 @@
     <br />
     <label asp-for="Course.EndDate"></label>
     <input asp-for="Course.EndDate" />
-    <br />
-    <label asp-for="Course.StartDate"></label>
-    <input asp-for="Course.StartDate" />
     <br />
     <label asp-for="Teacher.TeacherName"></label>
     <select asp-for="Teacher.TeacherId" asp-items="@Model.TeacherList"></select>

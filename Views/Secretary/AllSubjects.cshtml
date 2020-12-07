@@ -12,7 +12,7 @@
     }
     else
     {
-        <table>
+        <table border="1">
             <thead>
                 <tr>
                     <th>Course Id</th>
@@ -25,6 +25,7 @@
                     <th>Price</th>
                     <th>Seat Capacity</th>
                     <th>Type</th>
+                    <th>bool</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +40,16 @@
                     <td>@s.YearGrade</td>
                     <td>@s.Price</td>
                     <td>@s.SeatCapacity</td>
-                    <td>@s.Optional</td>
+                    @{ 
+                        if(s.Optional == true)
+                        {
+                            <td>Opcional</td>
+                        }
+                        else
+                        {
+                            <td>Obligatoria</td>
+                        }
+                    }
                 </tr>
                 }
             </tbody>

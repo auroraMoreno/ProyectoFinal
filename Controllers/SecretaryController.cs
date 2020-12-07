@@ -93,6 +93,15 @@ namespace ProyectoFinal.Controllers
      
         }
         //Post de addSubject aqui: 
+        [HttpPost]
+        public async Task<IActionResult> AddSubject(SecretaryAddSubjectViewModel vm)
+        {
+            var teacher = await _db.Teacher.SingleOrDefaultAsync(t => t.TeacherId == vm.Teacher.TeacherId);
+            vm.Course.Teacher = teacher;
+            _db.Add(vm.Course);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("AllSubjects");
+        }
 
     }
 }
