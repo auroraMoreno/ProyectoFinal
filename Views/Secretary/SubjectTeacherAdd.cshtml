@@ -1,0 +1,15 @@
+﻿@using ProyectoFinal.ViewModels
+@model SecretarySubjectTeacherAddViewModel 
+
+<h1>Asign the teacher a subject</h1>
+
+<p><a asp-action="Index" asp-controller="Secretary">Back to Index</a></p>
+
+<form asp-action="SubjectTeacherAdd" method="post">
+    <label asp-for="Teacher.TeacherName"></label>
+    <select asp-for="Teacher.TeacherId" asp-items="@Model.TeacherList"></select>
+    <br />
+    <label asp-for="Course.CourseName"></label>
+    <select asp-for="Course.CourseId" asp-items="@Model.CourseList"></select>
+    <button type="submit">Asing</button>
+</form>

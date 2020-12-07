@@ -1,0 +1,36 @@
+﻿@using ProyectoFinal.Models
+@model IEnumerable<Incidents>
+
+<h1>Teachers</h1>
+
+@{
+    if (Model.Count() < 1)
+    {
+        <p>No incidents in database yet</p>
+    }
+    else
+    {
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Incident Id</th>
+                    <th>Teacher Name</th>
+                    <th>Incident date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    <tr>
+                        <td>@t.IncidentsId</td>
+                        <td>@t.Teacher.TeacherName</td>
+                        <td>@t.IncidentDate</td>
+                        <td>@t.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+}

@@ -1,0 +1,15 @@
+﻿@using ProyectoFinal.Models
+@model IEnumerable<Course>
+
+<h1>Courses</h1>
+
+<table>
+    @{ 
+        foreach(var c in Model)
+        {
+            <tr>
+                <td>@c.CourseName</td>
+            </tr>
+        }
+    }
+</table>

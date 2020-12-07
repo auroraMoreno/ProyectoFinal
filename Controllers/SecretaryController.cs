@@ -103,5 +103,11 @@ namespace ProyectoFinal.Controllers
             return RedirectToAction("AllSubjects");
         }
 
+        public async Task<IActionResult> AllIncidents()
+        {
+            var incidents = await _db.Incidents.Include(i => i.Teacher).ToListAsync();
+            return View(incidents);
+        }
+
     }
 }

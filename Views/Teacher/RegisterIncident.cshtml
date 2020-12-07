@@ -1,0 +1,21 @@
+﻿@using ProyectoFinal.Models
+@model Incidents
+
+<h1>Register an incident: </h1>
+
+<form asp-action="RegisterIncident" method="post">
+    <label asp-for="TeacherId"></label>
+    <input asp-for="TeacherId" value="@ViewBag.TeacherId" readonly="readonly" />
+    <br />
+    <label asp-for="Teacher.TeacherName"></label>
+    <input asp-for="Teacher.TeacherName" value="@ViewBag.TeacherName" readonly="readonly" />
+    <br />
+    <label asp-for="IncidentDate"></label>
+    <input asp-for="IncidentDate" />
+    <br />
+    <label asp-for="Description"></label>
+    <textarea asp-for="Description"></textarea>
+    <br />
+    <button type="submit">Register incident</button> 
+    <p>Your incident will be sent to Secretary</p>
+</form>
