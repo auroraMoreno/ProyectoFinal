@@ -1,0 +1,35 @@
+﻿@using ProyectoFinal.ViewModels
+@model SecretaryEditSubjectViewModel
+
+<p><a asp-action="AllSubjects">Back to subject list</a></p>
+<form asp-controller="Secretary" asp-action="EditSubject">
+    <input type="hidden" asp-for="Course.CourseId" />
+    <label asp-for="Course.CourseName"></label>
+    <input asp-for="Course.CourseName" />
+    <br />
+    <label asp-for="Course.Credits"></label>
+    <input asp-for="Course.Credits" />
+    <br />
+    <label asp-for="Course.StartDate"></label>
+    <input asp-for="Course.StartDate" />
+    <br />
+    <label asp-for="Course.EndDate"></label>
+    <input asp-for="Course.EndDate" />
+    <br />
+    <label asp-for="Teacher.TeacherName"></label>
+    <select asp-for="Teacher.TeacherId" asp-items="@Model.TeacherList"></select>
+    <br />
+    <label asp-for="Course.YearGrade"></label>
+    <input asp-for="Course.YearGrade" />
+    <br />
+    <label asp-for="Course.Price"></label>
+    <input asp-for="Course.Price" />
+    <br />
+    <label asp-for="Course.SeatCapacity"></label>
+    <input asp-for="Course.SeatCapacity" />
+    <br />
+    <label asp-for="Course.Optional"></label>
+    <input type="checkbox" asp-for="Course.Optional" />
+    <br />
+    <button type="submit">Edit Subject</button>
+</form>

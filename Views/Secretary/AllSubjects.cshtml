@@ -25,7 +25,8 @@
                     <th>Price</th>
                     <th>Seat Capacity</th>
                     <th>Type</th>
-                    <th>bool</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,6 +51,8 @@
                             <td>Obligatoria</td>
                         }
                     }
+                    <td><a asp-action="EditSubject" asp-route-id="@s.CourseId">Edit</a></td>
+                    <td><a asp-action="DeleteSubject" asp-route-id="@s.CourseId">Delete</a></td>
                 </tr>
                 }
             </tbody>

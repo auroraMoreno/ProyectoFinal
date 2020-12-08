@@ -1,0 +1,26 @@
+﻿@using ProyectoFinal.ViewModels
+@model SecretaryDeleteTeacherViewModel
+
+<h1>Are you sure you want to delete this teacher...?</h1>
+<p><a asp-action="AllTeachers">Back to teachers</a></p>
+
+<form asp-action="DeleteTeacher" asp-controller="Secretary" method="post">
+    <label asp-for="Teacher.TeacherId"></label>
+    <input asp-for="Teacher.TeacherId" />
+    <label asp-for="Teacher.TeacherDNI"></label>
+    <input asp-for="Teacher.TeacherDNI" />
+    <br />
+    <label asp-for="Teacher.TeacherName"></label>
+    <input asp-for="Teacher.TeacherName" />
+    <br />
+    <label asp-for="Teacher.Age"></label>
+    <input asp-for="Teacher.Age" />
+    <br />
+    <label asp-for="Teacher.Address"></label>
+    <input asp-for="Teacher.Address" />
+    <br />
+    <label asp-for="Teacher.Email"></label>
+    <input asp-for="Teacher.Email" />
+    <br/>
+    <button type="submit">Delete Teacher</button>
+</form>

@@ -20,6 +20,8 @@
                     <th>Teacher Name</th>
                     <th>Teacher DNI</th>
                     <th>Department</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +32,8 @@
                         <td>@t.TeacherName</td>
                         <td>@t.TeacherDNI</td>
                         <td>@t.Department.DepartmentName</td>
+                        <td><a asp-action="EditTeacher" asp-route-id="@t.TeacherId">Edit teacher</a></td>
+                        <td><a asp-action="DeleteTeacher" asp-route-id="@t.TeacherId">Delete teacher</a></td>
                     </tr>
                 }
             </tbody>

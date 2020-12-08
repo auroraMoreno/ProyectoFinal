@@ -72,6 +72,49 @@ namespace ProyectoFinal.Controllers
             return RedirectToAction("AllTeachers");
         }
 
+        //Modificar profesor 
+        public async Task<IActionResult> EditTeacher(int id)
+        {
+            var teacherToUpdate = _db.Teacher.FirstOrDefault(t => t.TeacherId == id);
+            SecretaryEditTeacherViewModel vm = new SecretaryEditTeacherViewModel();
+            vm.Teacher = teacherToUpdate;
+            var departmentDisplay = await _db.Department.Select(x => new
+            {
+                Id=x.DepartmentId,
+                Value=x.DepartmentName
+
+            }).ToListAsync();
+            vm.DepartmentList = new SelectList(departmentDisplay, "Id", "Value");
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditTeacher(SecretaryEditTeacherViewModel vm)
+        {
+            var department = await _db.Department.SingleOrDefaultAsync(d => d.DepartmentId == vm.Department.DepartmentId);
+            vm.Teacher.Department = department;
+            _db.Update(vm.Teacher);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("AllTeachers");
+        }
+
+        //Eliminar profesor
+        public IActionResult DeleteTeacher(int id)
+        {
+            SecretaryDeleteTeacherViewModel vm = new SecretaryDeleteTeacherViewModel();
+            vm.Teacher = _db.Teacher.Find(id);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteTeacher(SecretaryDeleteTeacherViewModel vm)
+        {
+            _db.Remove(vm.Teacher);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("AllTeachers");
+        }
+
+
         //Gestión Asginaturas 
         public async Task<IActionResult> AllSubjects()
         {
@@ -103,6 +146,51 @@ namespace ProyectoFinal.Controllers
             return RedirectToAction("AllSubjects");
         }
 
+        //Modificar asignatura
+        public async Task<IActionResult> EditSubject(int id)
+        {
+            var subjectToUpdate = _db.Course.FirstOrDefault(s => s.CourseId == id);
+            SecretaryEditSubjectViewModel vm = new SecretaryEditSubjectViewModel();
+            vm.Course = subjectToUpdate;
+            var teacherDisplay = await _db.Teacher.Select(x => new
+            {
+                Id=x.TeacherId,
+                Value = x.TeacherName
+
+            }).ToListAsync();
+            vm.TeacherList = new SelectList(teacherDisplay, "Id", "Value");
+            return View(vm);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditSubject(SecretaryEditSubjectViewModel vm)
+        {
+            var teacher = await _db.Teacher.SingleOrDefaultAsync(t => t.TeacherId == vm.Teacher.TeacherId);
+            vm.Course.Teacher = teacher;
+            _db.Update(vm.Course);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("AllSubjects");
+        }
+
+        //Delete
+
+        public IActionResult DeleteSubject(int id)
+        {
+            SecretaryDeleteSubjectViewModel vm = new SecretaryDeleteSubjectViewModel();
+            vm.Course = _db.Course.Find(id);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteSubject(SecretaryDeleteSubjectViewModel vm)
+        {
+            _db.Remove(vm.Course);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("AllSubjects");
+        }
+
+        //incidents
         public async Task<IActionResult> AllIncidents()
         {
             var incidents = await _db.Incidents.Include(i => i.Teacher).ToListAsync();
