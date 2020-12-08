@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 
+
 namespace ProyectoFinal.Controllers
 {
+
     public class SecretaryController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -40,6 +42,40 @@ namespace ProyectoFinal.Controllers
         {
             _db.Add(department);
             await _db.SaveChangesAsync();
+            return RedirectToAction("AllDepartments");
+        }
+
+        //Modificar departamento
+        public IActionResult EditDepartment(int id)
+        {
+            Department department;
+            department = _db.Department.Find(id);
+            return View(department);
+        }
+
+        [HttpPost]
+        public IActionResult EditDepartment(Department department)
+        {
+            _db.Update(department);
+            _db.SaveChanges();
+            return RedirectToAction("AllDepartments");
+
+        }
+
+        //Delete departamento
+        public IActionResult DeleteDepartment(int id)
+        {
+            Department department;
+            department = _db.Department.Find(id);
+            return View(department);
+
+        }
+
+        [HttpPost]
+        public IActionResult DeleteDepartment(Department department)
+        {
+            _db.Remove(department);
+            _db.SaveChanges();
             return RedirectToAction("AllDepartments");
         }
 

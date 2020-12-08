@@ -17,6 +17,8 @@
                 <tr>
                     <th>Department Id</th>
                     <th>Deparment Name</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +27,8 @@
                    <tr>
                        <td>@d.DepartmentId</td>
                        <td>@d.DepartmentName</td>
+                       <td><a asp-action="EditDepartment" asp-route-id="@d.DepartmentId">Edit</a></td>
+                       <td><a asp-action="DeleteDepartment" asp-route-id="@d.DepartmentId">Delete</a></td>
                    </tr>
                }
             </tbody>
