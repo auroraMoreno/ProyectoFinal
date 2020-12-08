@@ -70,6 +70,15 @@ namespace ProyectoFinal.Controllers
                 var result = await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, false, false);
                 if (result.Succeeded)
                 {
+                    var user = await _userManager.FindByEmailAsync(vm.Email);
+                    var role = await _userManager.GetRolesAsync(user);
+                    if (role.Contains("Student"))
+                    {
+                        return RedirectToAction("Index", "Student");
+                    }else if (role.Contains("Secretary"))
+                    {
+                        return RedirectToAction("Index", "Secretary");
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Login Failure");

@@ -13,6 +13,9 @@ namespace ProyectoFinal.Models
         public DbSet<Course> Course { get; set; }
         public DbSet<Department> Department { get; set; }
         public DbSet<Incidents> Incidents { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
+        public DbSet<Grade> Grades { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

@@ -1,0 +1,60 @@
+﻿@using ProyectoFinal.Models
+@model IEnumerable<Course>
+
+<h1>Course</h1>
+
+<p><a asp-action="Index" asp-controller="Student">Back to Home</a></p>
+@{
+    if (Model.Count() < 1)
+    {
+        <p>No Subjects in database yet </p>
+    }
+    else
+    {
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Course Id</th>
+                    <th>Course name </th>
+                    <th>Credits</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Teacher</th>
+                    <th>Grade</th>
+                    <th>Price</th>
+                    <th>Seat Capacity</th>
+                    <th>Type</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.CourseId</td>
+                        <td>@s.CourseName</td>
+                        <td>@s.Credits</td>
+                        <td>@s.StartDate</td>
+                        <td>@s.EndDate</td>
+                        <td>@s.Teacher.TeacherName</td>
+                        <td>@s.YearGrade</td>
+                        <td>@s.Price</td>
+                        <td>@s.SeatCapacity</td>
+                        @{
+                            if (s.Optional == true)
+                            {
+                                <td>Opcional</td>
+                            }
+                            else
+                            {
+                                <td>Obligatoria</td>
+                            }
+                        }
+                        <td><a asp-action="EditSubject" asp-route-id="@s.CourseId">Enroll in this course</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
