@@ -1,0 +1,11 @@
+﻿@using ProyectoFinal.ViewModels
+@model StudentEnrrollCourseViewModel
+
+@{
+    foreach (var i in Model.CourseList)
+    {
+
+        <label>Choose subject</label>
+        <select asp-for="@Model.Course.CourseId" asp-items="@Model.CourseList"></select>
+    }
+}

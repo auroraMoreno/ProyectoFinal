@@ -1,0 +1,13 @@
+﻿@using ProyectoFinal.Models
+@model ICollection<Enrollment>
+
+
+@{ 
+    foreach(var c in Model)
+    {
+        foreach(var m in c.Courses)
+        {
+            <p>@m.CourseName</p>
+        }
+    }
+}

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal.Models;
+using ProyectoFinal.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,10 +67,28 @@ namespace ProyectoFinal.Controllers
             return View(students);
         }
 
-        public async Task<IActionResult> AllCourses()
+
+        public async Task<IActionResult> EnrollCourse(int id)
         {
-            var courses = await _db.Course.Include(c => c.Teacher).ToListAsync();
-            return View(courses);
+            var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var studentId = _db.Students.FirstOrDefault(s => s.UserId == currentUserId).StudentId;
+            var courseDisplay = await _db.Course.Select(x => new
+            {
+                Id=x.CourseId,
+                Value=x.CourseName
+            }).ToListAsync();
+            StudentEnrrollCourseViewModel vm = new StudentEnrrollCourseViewModel();
+            vm.CourseList = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(courseDisplay, "Id", "Value");
+            return View(vm);
+        }
+
+
+        public async Task<IActionResult> AllSubjects()
+        {
+            var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var studentId = _db.Students.FirstOrDefault(s => s.UserId == currentUserId).StudentId;
+            var subjects = await _db.Enrollments.Where(x => x.StudentId == studentId).ToListAsync();
+            return View(subjects);
         }
     }
 }
