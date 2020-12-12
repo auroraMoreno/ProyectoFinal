@@ -1,30 +1,52 @@
 ﻿<h1>Secretary Home</h1>
-<div style="display:flex">
-<div class="jumbotron">
-    <h1 class="display-4">Departament Admin.</h1>
-    <p class="lead">See all departments and add new ones</p>
-    <hr class="my-4">
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" asp-action="AllDepartments" role="button">See departments</a>
-    </p>
-</div>
-    <div style="border-left: 6px solid green; height: 445px;"></div>
-<div class="jumbotron">
-    <h1 class="display-4">Teacher Admin</h1>
-    <p class="lead">See all teacherss and add new ones</p>
-    <hr class="my-4">
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" asp-action="AllTeachers" role="button">See teachers</a>
-    </p>
-</div>
-</div>
-
-
-
 <p><a asp-controller="Account" asp-action="LogOut">Log Out</a></p>
-<p><a asp-action="AllDepartments">See Departments</a></p>
-<p><a asp-action="AllTeachers">See Teachers</a></p>
-<p><a asp-action="AllSubjects">See Subjects</a></p>
-<p><a asp-action="SubjectTeacherAdd">Asing teacher a subject</a></p>
-<p><a asp-action="AllIncidents">See incidents</a></p>
-<p><a asp-controller="Student" asp-action="AllProfiles">See students</a></p>
+<div style="display:flex">
+    <div class="jumbotron">
+        <h1 class="display-4">Departaments</h1>
+        <p class="lead">See all departments and add new ones</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="AllDepartments" role="button">See departments</a>
+        </p>
+    </div>
+    <div style="border-left:6px solid blue; height:350px"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Teachers</h1>
+        <p class="lead">See all teacherss and add new ones</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="AllTeachers" role="button">See teachers</a>
+        </p>
+    </div>
+    <div style="border-left:6px solid blue; height:350px"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Students</h1>
+        <p class="lead">See all students and their payments</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="AllProfiles" role="button">See students</a>
+        </p>
+    </div>
+</div>
+<div style="display:flex">
+    <div class="jumbotron">
+        <h1 class="display-4">Subjects</h1>
+        <p class="lead">See all subject and add new ones</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="AllSubjects" role="button">See subject</a>
+        </p>
+    </div>
+    <div style="border-left:6px solid blue; height:350px"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Incidents</h1>
+        <p class="lead">See all incidents sent from teachers</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="AllIncidents" role="button">See incidents</a>
+        </p>
+    </div>
+</div>
+   
+
+

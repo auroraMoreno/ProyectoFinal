@@ -1,14 +1,15 @@
 ﻿@using ProyectoFinal.Models
 @model IEnumerable<Department>
 
-<h1>Departments</h1>
+<h3>Departments</h3>
 
-<p><a asp-action="AddDepartment">Add Department</a></p>
+
 
 @{
     if (Model.Count() < 1)
     {
         <p>No departments in database yet</p>
+        <p><a asp-action="AddDepartment" class="btn btn-warning">Add Department</a></p>
     }
     else
     {
@@ -22,17 +23,18 @@
                 </tr>
             </thead>
             <tbody>
-               @foreach(var d in Model)
-               {
-                   <tr>
-                       <td>@d.DepartmentId</td>
-                       <td>@d.DepartmentName</td>
-                       <td><a asp-action="EditDepartment" asp-route-id="@d.DepartmentId">Edit</a></td>
-                       <td><a asp-action="DeleteDepartment" asp-route-id="@d.DepartmentId">Delete</a></td>
-                   </tr>
-               }
+                @foreach (var d in Model)
+                {
+                    <tr>
+                        <td>@d.DepartmentId</td>
+                        <td>@d.DepartmentName</td>
+                        <td><a class="btn"btn-warning" asp-action="EditDepartment" asp-route-id="@d.DepartmentId">Edit</a></td>
+                        <td><a class="btn btn-danger" asp-action="DeleteDepartment" asp-route-id="@d.DepartmentId">Delete</a></td>
+                    </tr>
+                }
             </tbody>
         </table>
+        <p><a asp-action="AddDepartment" class="btn btn-warning">Add Department</a></p>
     }
 
 }
