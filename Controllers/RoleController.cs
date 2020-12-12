@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal.Controllers
 {
-    [Authorize]
     public class RoleController : Controller
     {
         private ApplicationDbContext _db;

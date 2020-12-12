@@ -1,4 +1,26 @@
 ﻿<h1>Secretary Home</h1>
+<div style="display:flex">
+<div class="jumbotron">
+    <h1 class="display-4">Departament Admin.</h1>
+    <p class="lead">See all departments and add new ones</p>
+    <hr class="my-4">
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-action="AllDepartments" role="button">See departments</a>
+    </p>
+</div>
+    <div style="border-left: 6px solid green; height: 445px;"></div>
+<div class="jumbotron">
+    <h1 class="display-4">Teacher Admin</h1>
+    <p class="lead">See all teacherss and add new ones</p>
+    <hr class="my-4">
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-action="AllTeachers" role="button">See teachers</a>
+    </p>
+</div>
+</div>
+
+
+
 <p><a asp-controller="Account" asp-action="LogOut">Log Out</a></p>
 <p><a asp-action="AllDepartments">See Departments</a></p>
 <p><a asp-action="AllTeachers">See Teachers</a></p>
