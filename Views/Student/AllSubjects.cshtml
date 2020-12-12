@@ -1,13 +1,19 @@
 ﻿@using ProyectoFinal.Models
-@model ICollection<Enrollment>
+@model Enrollment
 
-
-@{ 
-    foreach(var c in Model)
+@{
+    if (Model.Courses.Count() < 1)
     {
-        foreach(var m in c.Courses)
-        {
-            <p>@m.CourseName</p>
-        }
+        <p>you havent got any courses yet</p>
     }
+    else
+    {
+
+        foreach (var i in Model.Courses)
+        {
+            <p>@i.CourseName</p>
+        }
+
+    }
+
 }

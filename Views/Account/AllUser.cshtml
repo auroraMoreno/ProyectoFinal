@@ -9,11 +9,14 @@
     else
     {
         <h3>All users</h3>
-        <table border="1">
-            <tr>
-                <th>User Name</th>
-                <th>User Role</th>
-            </tr>
+        <table class="table table-striped">
+            <thead class="bg-info">
+                <tr>
+                    <th>User Name</th>
+                    <th>User Role</th>
+                </tr>
+            </thead>
+           <tbody>
             @foreach (var u in Model)
             {
                 <tr>
@@ -21,6 +24,7 @@
                     <td><a asp-controller="Role" asp-action="AddUserRole" asp-route-id="@u.Id">Add Role/Update Role</a></td>
                 </tr>
             }
+            </tbody>
         </table>
     }
 }

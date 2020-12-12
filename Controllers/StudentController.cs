@@ -82,13 +82,14 @@ namespace ProyectoFinal.Controllers
             return View(vm);
         }
 
-
         public async Task<IActionResult> AllSubjects()
         {
             var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var studentId = _db.Students.FirstOrDefault(s => s.UserId == currentUserId).StudentId;
-            var subjects = await _db.Enrollments.Where(x => x.StudentId == studentId).ToListAsync();
-            return View(subjects);
+            //var subjects = await _db.Enrollments.Where(x => x.StudentId == studentId).ToListAsync();
+            Enrollment enrollment = await _db.Enrollments.SingleOrDefaultAsync(x => x.StudentId == studentId);
+            return View(enrollment);
         }
+     
     }
 }

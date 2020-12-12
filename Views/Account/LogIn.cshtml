@@ -4,11 +4,16 @@
 <h2>User login</h2>
 <form asp-action="LogIn" method="post">
     <div asp-validation-summary="All"></div>
+    <div class="form-group">
     <label asp-for="Email"></label>
-    <input asp-for="Email" />
+    <input asp-for="Email" class="form-control"/>
+    </div>
+    <div class="form-group">
     <span asp-validation-for="Email"></span>
     <label asp-for="Password"></label>
-    <input asp-for="Password" />
+    <input asp-for="Password" class="form-control"/>
+    </div>
     <span asp-validation-for="Password"></span>
-    <button type="submit">Ok</button>
+    <button type="submit" class="btn btn-info">Ok</button>
 </form>
+<a asp-action="Register">Register</a>

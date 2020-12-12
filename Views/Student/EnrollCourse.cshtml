@@ -2,10 +2,14 @@
 @model StudentEnrrollCourseViewModel
 
 @{
-    foreach (var i in Model.CourseList)
-    {
+    <form asp-action="EnrollCourse" method="post">
+        @foreach (var i in Model.CourseList)
+        {
 
         <label>Choose subject</label>
         <select asp-for="@Model.Course.CourseId" asp-items="@Model.CourseList"></select>
-    }
+        }
+        <button type="submit">Enroll</button>
+    </form>
+  
 }

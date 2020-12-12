@@ -18,6 +18,5 @@ namespace ProyectoFinal.Models
         public int Price { get; set; }
         public int SeatCapacity { get; set; }
         public bool Optional { get; set; }
-        public ICollection<Student> Students { get; set; }
     }
 }
