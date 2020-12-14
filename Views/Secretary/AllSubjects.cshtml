@@ -1,18 +1,17 @@
 ﻿@using ProyectoFinal.Models
 @model IEnumerable<Course>
 
-<h1>Course</h1> 
 
-<p><a asp-action="Index" asp-controller="Secretary">Back to Home</a></p>
-<p><a asp-action="AddSubject">Add Subject</a></p>
-@{ 
-    if(Model.Count() < 1)
+
+@{
+    if (Model.Count() < 1)
     {
         <p>No Subjects in database yet </p>
+        <p><a class="btn btn-warning" asp-action="AddSubject">Add Subject</a></p>
     }
     else
     {
-        <table border="1">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Course Id</th>
@@ -30,32 +29,35 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(var s in Model) {
-                <tr>
-                    <td>@s.CourseId</td>
-                    <td>@s.CourseName</td>
-                    <td>@s.Credits</td>
-                    <td>@s.StartDate</td>
-                    <td>@s.EndDate</td>
-                    <td>@s.Teacher.TeacherName</td>
-                    <td>@s.YearGrade</td>
-                    <td>@s.Price</td>
-                    <td>@s.SeatCapacity</td>
-                    @{ 
-                        if(s.Optional == true)
-                        {
-                            <td>Opcional</td>
+                @foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.CourseId</td>
+                        <td>@s.CourseName</td>
+                        <td>@s.Credits</td>
+                        <td>@s.StartDate</td>
+                        <td>@s.EndDate</td>
+                        <td>@s.Teacher.TeacherName</td>
+                        <td>@s.YearGrade</td>
+                        <td>@s.Price</td>
+                        <td>@s.SeatCapacity</td>
+                        @{
+                            if (s.Optional == true)
+                            {
+                                <td>Opcional</td>
+                            }
+                            else
+                            {
+                                <td>Obligatoria</td>
+                            }
                         }
-                        else
-                        {
-                            <td>Obligatoria</td>
-                        }
-                    }
-                    <td><a asp-action="EditSubject" asp-route-id="@s.CourseId">Edit</a></td>
-                    <td><a asp-action="DeleteSubject" asp-route-id="@s.CourseId">Delete</a></td>
-                </tr>
+                        <td><a asp-action="EditSubject" asp-route-id="@s.CourseId" class="btn btn-warning">Edit</a></td>
+                        <td><a asp-action="DeleteSubject" asp-route-id="@s.CourseId" class="btn btn-danger">Delete</a></td>
+                    </tr>
                 }
             </tbody>
         </table>
+        <p><a asp-action="AddSubject" class="btn btn-warning">Add Subject</a></p>
     }
+    <p><a asp-action="Index" asp-controller="Secretary">Back to Home</a></p>
 }

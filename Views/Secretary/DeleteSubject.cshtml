@@ -4,32 +4,34 @@
 <h1>Do yo want to delete this subject...?</h1>
 <p><a asp-action="AllSubjects">Back to subjects</a></p>
 <form asp-action="DeleteSubject" asp-controller="Secretary" method="post">
+    <div class="form-group">
     <label asp-for="Course.CourseId"></label>
-    <input asp-for="Course.CourseId" readonly="readonly"/>
+    <input class="form-control" asp-for="Course.CourseId" readonly="readonly"/>
     <br/>
     <label asp-for="Course.CourseName"></label>
-    <input asp-for="Course.CourseName" readonly="readonly"/>
+    <input class="form-control" asp-for="Course.CourseName" readonly="readonly"/>
     <br />
     <label asp-for="Course.Credits"></label>
-    <input asp-for="Course.Credits" readonly="readonly" />
+    <input class="form-control" asp-for="Course.Credits" readonly="readonly" />
     <br />
     <label asp-for="Course.StartDate"></label>
-    <input asp-for="Course.StartDate" readonly="readonly"/>
+    <input class="form-control" asp-for="Course.StartDate" readonly="readonly"/>
     <br />
     <label asp-for="Course.EndDate"></label>
-    <input asp-for="Course.EndDate" readonly="readonly"/>
+    <input class="form-control" asp-for="Course.EndDate" readonly="readonly"/>
     <br />
     <label asp-for="Course.YearGrade"></label>
-    <input asp-for="Course.YearGrade" readonly="readonly" />
+    <input class="form-control" asp-for="Course.YearGrade" readonly="readonly" />
     <br />
     <label asp-for="Course.Price"></label>
-    <input asp-for="Course.Price" readonly="readonly"/>
+    <input class="form-control" asp-for="Course.Price" readonly="readonly"/>
     <br />
     <label asp-for="Course.SeatCapacity"></label>
-    <input asp-for="Course.SeatCapacity" readonly="readonly"/>
+    <input class="form-control" asp-for="Course.SeatCapacity" readonly="readonly"/>
     <br />
     <label asp-for="Course.Optional"></label>
     <input asp-for="Course.Optional" readonly="readonly"/>
     <br />
-    <button type="submit">Delete Subject</button>
+     </div>
+    <button type="submit" class="btn btn-danger">Delete Subject</button>
 </form>

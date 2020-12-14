@@ -4,11 +4,15 @@
 <h1>Are you sure you want to delete this departemnt...?</h1>
 <p><a asp-action="AllDepartments">Back to departments</a></p>
 <form asp-controller="Secretary" asp-action="DeleteDepartment" method="post">
-    <label asp-for="DepartmentId"></label>
-    <input asp-for="DepartmentId" />
-    <br/>
-    <label asp-for="DepartmentName"></label>
-    <input asp-for="DepartmentName" />
-    <br />
-    <button type="submit">Delete Department</button>
+    <div class="form-group">
+        <label asp-for="DepartmentId"></label>
+        <input class="form-control" asp-for="DepartmentId" readonly="readonly" />
+        <br />
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartmentName"></label>
+        <input class="form-control" asp-for="DepartmentName" readonly="readonly" />
+        <br />
+    </div>
+    <button type="submit" class="btn btn-danger">Delete Department</button>
 </form>

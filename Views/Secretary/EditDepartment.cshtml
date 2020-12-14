@@ -5,8 +5,11 @@
 <form asp-controller="Secretary" asp-action="EditDepartment" method="post">
     <input type="hidden" asp-for="DepartmentId" />
     <br />
-    <label asp-for="DepartmentName"></label>
-    <input asp-for="DepartmentName" />
-    <br />
-    <button type="submit">Edit Department</button>
+    <div class="form-group">
+        <label asp-for="DepartmentName"></label>
+        <input class="form-control" asp-for="DepartmentName" />
+        <br />
+    </div>
+  
+    <button type="submit" class="btn btn-success">Edit Department</button>
 </form>

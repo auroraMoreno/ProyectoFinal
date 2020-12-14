@@ -1,20 +1,20 @@
 ﻿@using ProyectoFinal.Models
 @model IEnumerable<Teacher>
 
-<h1>Teachers</h1>
 
-<p><a asp-action="AddTeacher">Add Teachers</a></p>
-<p><a asp-controller="Secretary" asp-action="Index">Back to Home</a></p>
+
 
 @{
     if (Model.Count() < 1)
     {
         <p>No teachers in database yet</p>
+        <p><a class="btn btn-warning" asp-action="AddTeacher">Add Teachers</a></p>
     }
     else
     {
-        <table border="1">
-            <thead>
+        <p><a asp-action="AddTeacher" class="btn btn-warning">Add Teachers</a></p>
+        <table class="table table-hover">
+            <thead class="bg-info">
                 <tr>
                     <th>Teacher Id</th>
                     <th>Teacher Name</th>
@@ -32,12 +32,12 @@
                         <td>@t.TeacherName</td>
                         <td>@t.TeacherDNI</td>
                         <td>@t.Department.DepartmentName</td>
-                        <td><a asp-action="EditTeacher" asp-route-id="@t.TeacherId">Edit teacher</a></td>
-                        <td><a asp-action="DeleteTeacher" asp-route-id="@t.TeacherId">Delete teacher</a></td>
+                        <td><a class="btn btn-warning" asp-action="EditTeacher" asp-route-id="@t.TeacherId">Edit teacher</a></td>
+                        <td><a class="btn btn-danger" asp-action="DeleteTeacher" asp-route-id="@t.TeacherId">Delete teacher</a></td>
                     </tr>
                 }
             </tbody>
         </table>
     }
-
+    <p><a asp-controller="Secretary" asp-action="Index">Back to Home</a></p>
 }
