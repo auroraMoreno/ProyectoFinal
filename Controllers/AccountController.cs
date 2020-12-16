@@ -78,8 +78,11 @@ namespace ProyectoFinal.Controllers
                     }else if (role.Contains("Secretary"))
                     {
                         return RedirectToAction("Index", "Secretary");
+                    }else if (role.Contains("Teacher"))
+                    {
+                        return RedirectToAction("AllTeachers", "Teacher");
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("AllUser", "Account");
                 }
                 ModelState.AddModelError("", "Login Failure");
             }

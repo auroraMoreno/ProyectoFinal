@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal.Controllers
 {
-    //[Authorize(Roles ="Student,Admin,Secretary")]
+    [Authorize(Roles ="Student,Admin,Secretary")]
     public class StudentController:Controller
     {
         private readonly ApplicationDbContext _db;
@@ -68,17 +68,24 @@ namespace ProyectoFinal.Controllers
         }
 
 
-        public async Task<IActionResult> EnrollCourse(int id)
+        public async Task<IActionResult> EnrollCourse()
         {
-            var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var studentId = _db.Students.FirstOrDefault(s => s.UserId == currentUserId).StudentId;
+            var studentDisplay = await _db.Students.Select(x => new
+            {
+                Id = x.StudentId,
+                Value=x.StudentName
+            }).ToListAsync();
+
             var courseDisplay = await _db.Course.Select(x => new
             {
                 Id=x.CourseId,
                 Value=x.CourseName
             }).ToListAsync();
+
             StudentEnrrollCourseViewModel vm = new StudentEnrrollCourseViewModel();
+            vm.StudentList = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(studentDisplay,"Id","Value");
             vm.CourseList = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(courseDisplay, "Id", "Value");
+
             return View(vm);
         }
 

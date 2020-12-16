@@ -10,9 +10,9 @@ namespace ProyectoFinal.ViewModels
     public class StudentEnrrollCourseViewModel
     {
         public  Student Student { get; set; }
+        public SelectList StudentList { get; set; }
         public Enrollment Enrollment { get; set; }
         public Course Course { get; set; }
-        public ICollection<Course> Courses { get; set; }
         public SelectList CourseList { get; set; }
     }
 }
