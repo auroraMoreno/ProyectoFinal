@@ -89,6 +89,12 @@ namespace ProyectoFinal.Controllers
             return View(vm);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> EnrollCourse(StudentEnrrollCourseViewModel vm)
+        {
+            //hacer post
+        }
+
         public async Task<IActionResult> AllSubjects()
         {
             var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
