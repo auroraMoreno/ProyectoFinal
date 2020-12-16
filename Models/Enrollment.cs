@@ -10,6 +10,7 @@ namespace ProyectoFinal.Models
         public int EnrollmentId { get; set; }
         public int StudentId { get; set; }
         public Student Student { get; set; }
+        public Course Course { get; set; }
         public ICollection<Course> Courses { get; set; }
 
     }

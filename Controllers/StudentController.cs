@@ -92,14 +92,23 @@ namespace ProyectoFinal.Controllers
         [HttpPost]
         public async Task<IActionResult> EnrollCourse(StudentEnrrollCourseViewModel vm)
         {
-            //hacer post
+            var student = await _db.Students.SingleOrDefaultAsync(x => x.StudentId == vm.Student.StudentId);
+            var course = await _db.Course.SingleOrDefaultAsync(x => x.CourseId == vm.Course.CourseId);
+            Enrollment enrollment = new Enrollment();
+            vm.Enrollment.Course = course;
+            enrollment.Course = vm.Enrollment.Course;
+            vm.Enrollment.Student = student;
+            enrollment.Student = vm.Enrollment.Student;
+            _db.Add(enrollment);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("AllSubjects");
         }
 
         public async Task<IActionResult> AllSubjects()
         {
             var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var studentId = _db.Students.FirstOrDefault(s => s.UserId == currentUserId).StudentId;
-            //var subjects = await _db.Enrollments.Where(x => x.StudentId == studentId).ToListAsync();
+            var subjects = await _db.Enrollments.Where(x => x.StudentId == studentId).ToListAsync();
             Enrollment enrollment = await _db.Enrollments.SingleOrDefaultAsync(x => x.StudentId == studentId);
             return View(enrollment);
         }
