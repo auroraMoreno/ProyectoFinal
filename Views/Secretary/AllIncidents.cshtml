@@ -1,17 +1,17 @@
 ﻿@using ProyectoFinal.Models
 @model IEnumerable<Incidents>
 
-<h1>Teachers</h1>
 
 @{
     if (Model.Count() < 1)
     {
         <p>No incidents in database yet</p>
+        <p><a asp-action="Index">Back</a></p>
     }
     else
     {
-        <table border="1">
-            <thead>
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th>Incident Id</th>
                     <th>Teacher Name</th>
@@ -31,6 +31,7 @@
                 }
             </tbody>
         </table>
+        <p><a asp-action="Index">Back</a></p>
     }
 
 }

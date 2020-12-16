@@ -5,27 +5,32 @@
     if (Model.Count() < 1)
     {
         <p>There are no profiles yet</p>
+        <p><a asp-controller="Home" asp-action="Index">Return</a></p>
     }
     else
     {
         <h3>All profiles</h3>
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Profile Name</th>
-                <th>Office Location</th>
-                <th></th>
-                <th></th>
-            </tr>
-            @foreach (var i in Model)
-            {
+        <table class="table table-hover">
+            <thead class="bg-info">
                 <tr>
-                    <td>@i.StudentId</td>
-                    <td>@i.StudentName</td>
-                    <td>@i.StudentDNI</td>
-                    <td><a>See Payments</a></td>
+                    <th>ID</th>
+                    <th>Profile Name</th>
+                    <th>Office Location</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.StudentId</td>
+                        <td>@i.StudentName</td>
+                        <td>@i.StudentDNI</td>
+                        <td><a>See Payments</a></td>
+                    </tr>
+                }
+            </tbody>
         </table>
     }
 }

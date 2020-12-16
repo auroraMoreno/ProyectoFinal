@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal.Controllers
 {
-    [Authorize(Roles ="Student,Admin,Secretary")]
+    //[Authorize(Roles ="Student,Admin,Secretary")]
     public class StudentController:Controller
     {
         private readonly ApplicationDbContext _db;

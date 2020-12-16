@@ -4,18 +4,20 @@
 <h1>Register an incident: </h1>
 
 <form asp-action="RegisterIncident" method="post">
+    <div class="form-group">
     <label asp-for="TeacherId"></label>
-    <input asp-for="TeacherId" value="@ViewBag.TeacherId" readonly="readonly" />
+    <input class="form-control" asp-for="TeacherId" value="@ViewBag.TeacherId" readonly="readonly" />
     <br />
     <label asp-for="Teacher.TeacherName"></label>
-    <input asp-for="Teacher.TeacherName" value="@ViewBag.TeacherName" readonly="readonly" />
+    <input class="form-control" asp-for="Teacher.TeacherName" value="@ViewBag.TeacherName" readonly="readonly" />
     <br />
     <label asp-for="IncidentDate"></label>
-    <input asp-for="IncidentDate" />
+    <input class="form-control" asp-for="IncidentDate" />
     <br />
     <label asp-for="Description"></label>
-    <textarea asp-for="Description"></textarea>
+    <textarea class="form-control" asp-for="Description"></textarea>
     <br />
-    <button type="submit">Register incident</button> 
+    </div>
+    <button class="btn btn-warning" type="submit">Register incident</button> 
     <p>Your incident will be sent to Secretary</p>
 </form>

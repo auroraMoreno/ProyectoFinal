@@ -10,8 +10,8 @@
     }
     else
     {
-        <table border="1">
-            <thead>
+        <table class="table table-hover">
+            <thead class="bg-info">
                 <tr>
                     <th>Teacher Id</th>
                     <th>Teacher Name</th>
@@ -28,9 +28,9 @@
                         <td>@t.TeacherName</td>
                         <td>@t.TeacherDNI</td>
                         <td>@t.Department.DepartmentName</td>
-                        <td><a asp-controller="Teacher" asp-action="SubjectTeacher"
+                        <td><a class="btn btn-info" asp-controller="Teacher" asp-action="SubjectTeacher"
                                asp-route-id="@t.TeacherId">Subjects</a></td>
-                        <td><a asp-controller="Teacher" asp-action="RegisterIncident" asp-route-id="@t.TeacherId">Register Incident</a></td>
+                        <td><a class="btn btn-warning" asp-controller="Teacher" asp-action="RegisterIncident" asp-route-id="@t.TeacherId">Register Incident</a></td>
                     </tr>
                 }
             </tbody>

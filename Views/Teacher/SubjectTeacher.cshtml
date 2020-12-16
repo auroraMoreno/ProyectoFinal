@@ -3,7 +3,13 @@
 
 <h1>Courses</h1>
 
-<table>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Course name</th>
+        </tr>
+    </thead>
+    <tbody>
     @{ 
         foreach(var c in Model)
         {
@@ -12,4 +18,5 @@
             </tr>
         }
     }
+    </tbody>
 </table>

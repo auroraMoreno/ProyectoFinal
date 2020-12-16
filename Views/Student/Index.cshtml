@@ -1,3 +1,33 @@
-﻿<p><a asp-action="EnrollCourse">Enroll in Course</a></p>
+﻿<h1>Student Area</h1>
+<div style="display:flex">
+    <div class="jumbotron">
+        <h1 class="display-4">Add profile</h1>
+        <p class="lead">In order to enroll you need to add your profile</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="AddProfile" role="button">Go!</a>
+        </p>
+    </div>
+    <div style="border-left:6px solid blue; height:350px"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Enrollment</h1>
+        <p class="lead">Enroll in course</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="EnrollCourse" role="button">Go!</a>
+        </p>
+    </div>
+    <div style="border-left:6px solid blue; height:350px"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Subjects</h1>
+        <p class="lead">See all the subjects you've enrolled in</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" asp-action="AllProfiles" role="button">See subjects!</a>
+        </p>
+    </div>
+</div>
+
+<p><a asp-action="EnrollCourse">Enroll in Course</a></p>
 <p><a asp-action="AddProfile">Add your profile</a></p>
 <p><a asp-action="AllSubjects">See my subjects</a></p>
