@@ -8,11 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProyectoFinal.Controllers
 {
-
+    [Authorize(Roles = "Admin,Secretary")]
     public class SecretaryController : Controller
     {
         private readonly ApplicationDbContext _db;

@@ -8,7 +8,8 @@
     }
     else
     {
-        <h3>All users</h3>
+        <h3>Select your user and update your role: </h3>
+        <h2><a asp-action="LogIn">After, Log in again to update your role</a></h2>
         <table class="table table-hover">
             <thead class="bg-info">
                 <tr>
@@ -16,14 +17,14 @@
                     <th>User Role</th>
                 </tr>
             </thead>
-           <tbody>
-            @foreach (var u in Model)
-            {
-                <tr>
-                    <td>@u.UserName</td>
-                    <td><a asp-controller="Role" asp-action="AddUserRole" asp-route-id="@u.Id">Add Role/Update Role</a></td>
-                </tr>
-            }
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@u.UserName</td>
+                        <td><a asp-controller="Role" asp-action="AddUserRole" asp-route-id="@u.Id">Add Role/Update Role</a></td>
+                    </tr>
+                }
             </tbody>
         </table>
     }
