@@ -7,9 +7,11 @@
     if (Model.Count() < 1)
     {
         <p>No teachers in database yet</p>
+        <p><a asp-controller="Account" asp-action="LogOut">Log Out</a></p>
     }
     else
     {
+        <p><a asp-controller="Account" asp-action="LogOut">Log Out</a></p>
         <table class="table table-hover">
             <thead class="bg-info">
                 <tr>
@@ -28,8 +30,10 @@
                         <td>@t.TeacherName</td>
                         <td>@t.TeacherDNI</td>
                         <td>@t.Department.DepartmentName</td>
-                        <td><a class="btn btn-info" asp-controller="Teacher" asp-action="SubjectTeacher"
-                               asp-route-id="@t.TeacherId">Subjects</a></td>
+                        <td>
+                            <a class="btn btn-info" asp-controller="Teacher" asp-action="SubjectTeacher"
+                               asp-route-id="@t.TeacherId">Subjects</a>
+                        </td>
                         <td><a class="btn btn-warning" asp-controller="Teacher" asp-action="RegisterIncident" asp-route-id="@t.TeacherId">Register Incident</a></td>
                     </tr>
                 }
